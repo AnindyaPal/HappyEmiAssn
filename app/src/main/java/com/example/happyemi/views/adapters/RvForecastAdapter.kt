@@ -20,7 +20,8 @@ class RvForecastAdapter(val forecastDays : MutableList<ForecastDay>) : RecyclerV
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
         holder.tvDay.text = Utils.getWeekDayName(forecastDays[position].date)
-        holder.tvTemp.text = forecastDays[position].day.avgtemp_c.toInt().toString()+ " C"
+        val intDegree : Int = Math.round(forecastDays[position].day.avgtemp_c).toInt()
+        holder.tvTemp.text = intDegree.toString()+ " C"
     }
 
 }

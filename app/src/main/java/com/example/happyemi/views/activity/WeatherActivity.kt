@@ -104,14 +104,9 @@ class WeatherActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks
                 run {
                     tvCurrentTemp.text = weather.current.temp_c.toInt().toString()
                     tvCity.text = city
+                    vDegree.visibility = View.VISIBLE
 
-                    for ( i : Int in 0 until weather.forecast.forecastday.size){
-                        forecastDays.add(weather.forecast.forecastday[i])
-                        if (i == 3) {
-                            break
-                        }
-                    }
-
+                    forecastDays.addAll(weather.forecast.forecastday)
                     rvForecastAdapter?.notifyDataSetChanged()
 
                     val bottomSheetBehavor = BottomSheetBehavior.from(bottomDialogForecast)

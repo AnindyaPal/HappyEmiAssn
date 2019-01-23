@@ -3,7 +3,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.widget.Toast
 import java.text.SimpleDateFormat
-import java.util.*
 
 class Utils {
     companion object {
