@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 class ApiRepositoryModule {
 
     companion object {
-        val API_BASE_URL : String = "http://api.apixu.com/"
+        val API_BASE_URL : String = "https://api.apixu.com/"
     }
     @Provides
     @WeatherAppScope

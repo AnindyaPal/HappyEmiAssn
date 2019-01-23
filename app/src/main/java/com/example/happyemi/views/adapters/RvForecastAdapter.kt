@@ -8,7 +8,7 @@ import com.example.happyemi.Utils
 import com.example.happyemi.models.ForecastDay
 import com.example.happyemi.views.viewHolders.ForecastViewHolder
 
-class RvForecastAdapter(var forecastDays : MutableList<ForecastDay>) : RecyclerView.Adapter<ForecastViewHolder>() {
+class RvForecastAdapter(val forecastDays : MutableList<ForecastDay>) : RecyclerView.Adapter<ForecastViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder {
         val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.forecast_item, parent, false)
         return ForecastViewHolder(layoutView)
@@ -19,8 +19,8 @@ class RvForecastAdapter(var forecastDays : MutableList<ForecastDay>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
-        holder.tvDay.text = Utils.getWeekDayName(forecastDays[position].date_epoch)
-        holder.tvTemp.text = forecastDays[position].day.avgtemp_c.toString()+ " C"
+        holder.tvDay.text = Utils.getWeekDayName(forecastDays[position].date)
+        holder.tvTemp.text = forecastDays[position].day.avgtemp_c.toInt().toString()+ " C"
     }
 
 }

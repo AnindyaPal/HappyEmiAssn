@@ -34,7 +34,7 @@ class WeatherViewModel() : ViewModel(), CoroutineScope{
 
     suspend fun performGetForecast( apiKey : String, city : String){
         try {
-            var weather = weatherRepo.getForecastWeather(apiKey = apiKey, city = city).await()
+            var weather = weatherRepo.getForecastWeather(apiKey = apiKey, city = city, days = 4).await()
             forecastLiveData.value = weather
         }
         catch (e : Exception) {
