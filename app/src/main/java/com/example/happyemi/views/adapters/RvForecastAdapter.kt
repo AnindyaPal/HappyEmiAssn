@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.happyemi.R
+import com.example.happyemi.Utils
 import com.example.happyemi.models.ForecastDay
 import com.example.happyemi.views.viewHolders.ForecastViewHolder
 
@@ -18,7 +19,8 @@ class RvForecastAdapter(var forecastDays : MutableList<ForecastDay>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.tvDay.text = Utils.getWeekDayName(forecastDays[position].date_epoch)
+        holder.tvTemp.text = forecastDays[position].day.avgtemp_c.toString()+ " C"
     }
 
 }

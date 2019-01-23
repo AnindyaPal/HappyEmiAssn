@@ -6,7 +6,7 @@
         android:layout_height="wrap_content"
         app:behavior_hideable="true"
         app:behavior_peekHeight="0dp"
-        android:id="@+id/bottomDialogFilter"
+        android:id="@+id/bottomDialogForecast"
         android:paddingTop="8dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 

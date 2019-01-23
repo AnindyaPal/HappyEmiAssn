@@ -53,6 +53,9 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.15'
     kapt 'com.google.dagger:dagger-compiler:2.15'
     kapt 'com.google.dagger:dagger-android-processor:2.15'
+
+    //location
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 }
 
 apply plugin: 'kotlin-kapt'

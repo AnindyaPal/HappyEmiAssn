@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class WeatherViewModel(var apiKey : String,var city : String) : ViewModel(), CoroutineScope{
+class WeatherViewModel() : ViewModel(), CoroutineScope{
 
     @Inject
     internal lateinit var weatherRepo: WeatherRepo
@@ -28,25 +28,11 @@ class WeatherViewModel(var apiKey : String,var city : String) : ViewModel(), Cor
         WeatherAppClass.getAppInstance()?.getappComponent()?.injectWeatherActivity(this)
     }
 
-    fun getCurrent(){
-        launch { performGetCurrent() }
+    fun getForecast( apiKey : String, city : String){
+        launch { performGetForecast(apiKey, city) }
     }
 
-    fun getForecast(){
-        launch { performGetForecast() }
-    }
-
-    suspend fun performGetCurrent(){
-        try {
-            var weather = weatherRepo.getCurrentWeather(apiKey = apiKey, city = city).await()
-            currentLiveData.value = weather
-        }
-        catch (e : Exception) {
-            currentLiveData.value = null
-        }
-    }
-
-    suspend fun performGetForecast(){
+    suspend fun performGetForecast( apiKey : String, city : String){
         try {
             var weather = weatherRepo.getForecastWeather(apiKey = apiKey, city = city).await()
             forecastLiveData.value = weather
